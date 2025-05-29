@@ -1,0 +1,5 @@
+site_name: HCM4A-MS Documentation 
+nav:
+  - GUI Guide: hcm4a_ms_gui_guide.md
+  - Source Code Compilation: hcm4a_ms_compilation.md
+theme: readthedocs
