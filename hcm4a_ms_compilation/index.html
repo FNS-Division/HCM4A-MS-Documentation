@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Source Code Compilation - HCM4A-MS Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Source Code Compilation";
+        var mkdocs_page_input_path = "hcm4a_ms_compilation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> HCM4A-MS Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hcm4a_ms_gui_guide/">GUI Guide</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Source Code Compilation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-installing-upp">1. Installing UPP</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#11-download-upp">1.1 Download UPP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#12-unpack-upp-archive">1.2 Unpack UPP Archive</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#13-start-theide">1.3 Start TheIDE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#14-accept-copyright-and-initialize">1.4 Accept Copyright and Initialize</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#15-complete-upp-setup">1.5 Complete UPP Setup</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-compiling-dll_mobiledll">2. Compiling DLL_Mobile.dll</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-create-project-directory">2.1 Create Project Directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-open-project-in-theide">2.2 Open Project in TheIDE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23-build-dll">2.3 Build DLL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24-monitor-compilation">2.4 Monitor Compilation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#25-finalize-dll-compilation">2.5 Finalize DLL Compilation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-compiling-hcm4amobileserviceexe">3. Compiling HCM4AMobileService.exe</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31-create-gui-project-directory">3.1 Create GUI Project Directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#32-open-gui-project-in-theide">3.2 Open GUI Project in TheIDE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#33-initial-compilation-attempt-expected-failure">3.3 Initial Compilation Attempt (Expected Failure)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#34-install-functions4u-unit">3.4 Install Functions4U Unit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#35-search-and-install-functions4u">3.5 Search and Install Functions4U</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#36-retry-gui-compilation">3.6 Retry GUI Compilation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#37-monitor-gui-compilation">3.7 Monitor GUI Compilation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#38-finalize-gui-compilation">3.8 Finalize GUI Compilation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-combining-into-the-final-software">4. Combining into the Final Software</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41-place-dll-and-exe-files">4.1 Place DLL and EXE Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42-create-files-folder">4.2 Create "Files" Folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#43-create-listofcountriestxt">4.3 Create ListOfCountries.txt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#44-create-stations-reflist-and-testlist-folders">4.4 Create “Stations”, “RefList” and “TestList” folders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#45-starting-the-program">4.5 Starting the program</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">HCM4A-MS Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Source Code Compilation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hcm4a-mobile-service-compilation-guide">HCM4A Mobile Service - Compilation Guide</h1>
+<p>This guide walks you through setting up the <strong>Ultimate++ (UPP)</strong> development environment and compiling the <code>DLL_Mobile.dll</code> library and the <code>HCM4AMobileService.exe</code> application using <em>TheIDE</em>.</p>
+<h2 id="1-installing-upp">1. Installing UPP</h2>
+<h3 id="11-download-upp">1.1 Download UPP</h3>
+<p>Download the UPP archive from <a href="https://sourceforge.net/projects/upp/">https://sourceforge.net/projects/upp/</a>.</p>
+<p><img alt="UPP Download Page" src="../img/hcm4a_ms_compilation/1_upp_download_page.png" /></p>
+<h3 id="12-unpack-upp-archive">1.2 Unpack UPP Archive</h3>
+<p>Unpack the <code>upp-archive</code> to any location on your hard drive, but placement as a root folder is recommended (e.g., <code>C:\upp</code>).</p>
+<p><img alt="UPP Unpacked Folder" src="../img/hcm4a_ms_compilation/2_upp_unpacked_folder.png" /></p>
+<h3 id="13-start-theide">1.3 Start TheIDE</h3>
+<p>Start the <code>theide.exe</code> file in the UPP folder. Agree to execute if Windows Defender requests permission to execute a file from an unknown source. This will prompt a copyright dialog:</p>
+<p><img alt="TheIDE Copyright Dialog" src="../img/hcm4a_ms_compilation/3_theide_copyright_dialog.png" /></p>
+<h3 id="14-accept-copyright-and-initialize">1.4 Accept Copyright and Initialize</h3>
+<p>Press «Yes» and wait until the initiation of UPP is complete. This will result in the following dialog window appearing. Press “Cancel”:</p>
+<p><img alt="UPP Initialization Dialog" src="../img/hcm4a_ms_compilation/4_upp_initialization_dialog.png" /></p>
+<h3 id="15-complete-upp-setup">1.5 Complete UPP Setup</h3>
+<p>Pressing “Cancel” will close the UPP software and complete all preparations for further compilation of the software.</p>
+<h2 id="2-compiling-dll_mobiledll">2. Compiling <code>DLL_Mobile.dll</code></h2>
+<h3 id="21-create-project-directory">2.1 Create Project Directory</h3>
+<p>Inside the UPP folder, create a new folder <code>MyApps</code>, followed by an embedded folder <code>DLL_Mobile</code>. Place the DLL library source code in that final folder:</p>
+<p><img alt="DLL_Mobile Project Directory" src="../img/hcm4a_ms_compilation/5_dll_mobile_project_directory.png" /></p>
+<h3 id="22-open-project-in-theide">2.2 Open Project in TheIDE</h3>
+<p>To compile (build) the DLL-file, start <code>theide.exe</code>, select the assembly from the <code>MyApps</code> folder for <code>DLL_Mobile.dll</code>, and press the OK button to open this project:</p>
+<p><img alt="Open DLL_Mobile Project" src="../img/hcm4a_ms_compilation/6_open_dll_mobile_project.png" /></p>
+<h3 id="23-build-dll">2.3 Build DLL</h3>
+<p>In the interface of the UPP framework, open the “Build” menu and press the “Build” command.</p>
+<p><img alt="Build DLL Command" src="../img/hcm4a_ms_compilation/7_build_dll_command.png" /></p>
+<h3 id="24-monitor-compilation">2.4 Monitor Compilation</h3>
+<p>After a few seconds, the DLL-file will be compiled. An IDE-console string will show up at the bottom of the window to indicate progress and, finally, the folder with the output:</p>
+<p><img alt="DLL Compilation Progress" src="../img/hcm4a_ms_compilation/8_dll_compilation_progress.png" /></p>
+<h3 id="25-finalize-dll-compilation">2.5 Finalize DLL Compilation</h3>
+<p>Close the UPP-framework program. The <code>DLL_Mobile.dll</code> file is compiled and can be used further with the <code>HCM4AMobileService</code> program (only the DLL-file is needed for further work).</p>
+<p><img alt="Compiled DLL_Mobile.dll" src="../img/hcm4a_ms_compilation/9_compiled_dll_mobile_dll.png" /></p>
+<h2 id="3-compiling-hcm4amobileserviceexe">3. Compiling <code>HCM4AMobileService.exe</code></h2>
+<h3 id="31-create-gui-project-directory">3.1 Create GUI Project Directory</h3>
+<p>Similar to step 2.1 above, create a folder inside <code>MyApps</code> to place the source code of the GUI program (e.g., <code>c:\upp\MyApps\HCM4AMobileService\</code>). Place the GUI source code in that final folder:</p>
+<p><img alt="GUI Project Directory" src="../img/hcm4a_ms_compilation/10_gui_project_directory.png" /></p>
+<h3 id="32-open-gui-project-in-theide">3.2 Open GUI Project in TheIDE</h3>
+<p>To compile (build) <code>HCM4AMobileService</code>, start <code>theide.exe</code>, select the assembly from the <code>MyApps</code> folder for <code>HCM4AMobileService</code>, and press the OK button to open this project:</p>
+<p><img alt="Open GUI Project" src="../img/hcm4a_ms_compilation/11_open_gui_project.png" /></p>
+<h3 id="33-initial-compilation-attempt-expected-failure">3.3 Initial Compilation Attempt (Expected Failure)</h3>
+<p>The first attempt to compile the HCM4A mobile service GUI will likely fail due to a lack of additional UPP components not present in the general installation.</p>
+<p><img alt="Initial Compilation Failure" src="../img/hcm4a_ms_compilation/12_initial_compilation_failure.png" />
+<img alt="Initial Compilation Failure" src="../img/hcm4a_ms_compilation/13_initial_compilation_failure.png" /></p>
+<h3 id="34-install-functions4u-unit">3.4 Install Functions4U Unit</h3>
+<p>The <code>Functions4U</code> unit needs to be installed. Missing <code>plugin/jpg/lib</code> can be ignored as it will be automatically linked by the UPP framework GUI without any additional actions from the user. To install the <code>Functions4U</code> unit, go to the Setup menu and switch to UPP hub:</p>
+<p><img alt="UPP Hub Setup Menu" src="../img/hcm4a_ms_compilation/14_upp_hub_setup_menu.png" /></p>
+<h3 id="35-search-and-install-functions4u">3.5 Search and Install Functions4U</h3>
+<p>At the bottom of the UPP Hub window, enter “FUNCTIONS4U” to automatically search for the missing unit. Then select and install that unit:</p>
+<p><img alt="Search Functions4U in UPP Hub" src="../img/hcm4a_ms_compilation/15_search_functions4u_in_upp_hub.png" /></p>
+<p>This will trigger an installation progress window:</p>
+<p><img alt="Functions4U Installation Progress" src="../img/hcm4a_ms_compilation/16_functions4u_installation_progress.png" /></p>
+<h3 id="36-retry-gui-compilation">3.6 Retry GUI Compilation</h3>
+<p>Repeat the attempt to compile the HCM4A mobile service GUI. In the interface of the UPP framework, open the “Build” menu and press the “Build” command. Ignore missing <code>plugin/jpg/lib</code> if you are reopening the <code>MyApps</code> project.</p>
+<p><img alt="Retry Build GUI Command" src="../img/hcm4a_ms_compilation/17_retry_build_gui_command.png" /></p>
+<h3 id="37-monitor-gui-compilation">3.7 Monitor GUI Compilation</h3>
+<p>After a few minutes, <code>HCM4AMobileService.exe</code> will be compiled. An IDE-console string will show up at the bottom of the window to indicate progress and, finally, the folder with the output. Ignore warnings at the end of the compilation process (warnings do not affect proper compilation) and switch to the console to see the output file:</p>
+<p><img alt="GUI Compilation Progress" src="../img/hcm4a_ms_compilation/18_gui_compilation_progress.png" /></p>
+<h3 id="38-finalize-gui-compilation">3.8 Finalize GUI Compilation</h3>
+<p>Close the UPP-framework program. The <code>HCM4AMobileService.exe</code> file is compiled and can be used further with the DLL-library (only the EXE-file output is needed for further work).</p>
+<h2 id="4-combining-into-the-final-software">4. Combining into the Final Software</h2>
+<h3 id="41-place-dll-and-exe-files">4.1 Place DLL and EXE Files</h3>
+<p>Place the DLL-file and EXE-file in a new folder (e.g., <code>C:\HCM4AMobileService\</code>).</p>
+<p><img alt="Combined DLL and EXE" src="../img/hcm4a_ms_compilation/19_combined_dll_and_exe.png" /></p>
+<h3 id="42-create-files-folder">4.2 Create "Files" Folder</h3>
+<p>Create a new folder <code>Files</code> inside the <code>HCM4AMobileService</code> folder.</p>
+<p><img alt="Files Folder Created" src="../img/hcm4a_ms_compilation/20_files_folder_created.png" /></p>
+<h3 id="43-create-listofcountriestxt">4.3 Create <code>ListOfCountries.txt</code></h3>
+<p>Inside the <code>Files</code> folder, create a text file named <code>ListOfCountries.txt</code> and copy the following contents into this file. This file is used to link country maps and the GUI and can be used to add new countries in the future without recompilation of the GUI.</p>
+<pre><code class="language-text">AFS
+ZA1
+AGL
+AO1
+ALG
+BDI
+BEN
+BFA
+BOT
+CAF
+CME
+COD
+COG
+COM
+CPV
+CTI
+DJI
+EGY
+ERI
+ETH
+GAB
+GHA
+GMB
+GNB
+GNE
+GQ1
+GUI
+KEN
+LBR
+LBY
+LSO
+MAU
+MDG
+MLI
+MOZ
+MRC
+MTN
+MWI
+NGR
+NIG
+NMB
+RRW
+SDN
+SEN
+SEY
+SOM
+SRL
+SSD
+STP
+SWZ
+TCD
+TGO
+TUN
+TZA
+TZ1
+UGA
+ZMB
+ZWE
+</code></pre>
+<p><img alt="List of Countries" src="../img/hcm4a_ms_compilation/21_list_of_countries.png" /></p>
+<h3 id="44-create-stations-reflist-and-testlist-folders">4.4 Create “Stations”, “RefList” and “TestList” folders</h3>
+<p>Final step includes creating a number of other folders inside “HCM4AMobileService” folder (or any other name for main folder at user’s choice). First create a new folder “Stations” inside “HCM4AMobileService” folder</p>
+<p><img alt="List of Countries" src="../img/hcm4a_ms_compilation/22_list_of_countries.png" /></p>
+<p>And then create to subfolders “RefList” and “TestList”</p>
+<h3 id="45-starting-the-program">4.5 Starting the program</h3>
+<p>The program is ready to start. The first action after the start would be to download mapping data and provide path for it in “Paths” menu:</p>
+<p><img alt="List of Countries" src="../img/hcm4a_ms_compilation/23_list_of_countries.png" />
+<img alt="List of Countries" src="../img/hcm4a_ms_compilation/24_list_of_countries.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hcm4a_ms_gui_guide/" class="btn btn-neutral float-left" title="GUI Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hcm4a_ms_gui_guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
